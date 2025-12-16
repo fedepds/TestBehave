@@ -95,7 +95,7 @@ PruebasBehave/
 │   ├── inventory_page.py         # Página de inventario
 │   └── imdb_page.py              # Página de IMDB
 ├── reports/                       # Reportes generados
-│   └── screenshots/              # Capturas de pantalla (en fallos)
+│   └── screenshots/              # Capturas de pantalla 
 ├── behave.ini                     # Configuración de Behave
 ├── requirements.txt               # Dependencias del proyecto
 └── README.md                      # Este archivo
