@@ -5,8 +5,6 @@ from typing import Callable
 class ImdbPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
-        self.search_input = page.locator("input[id='suggestion-search']")
-        self.search_button = page.locator("button[id='suggestion-search-button']")
 
         # Mapeo de nombres de campos a funciones que retornan localizadores
         self.field_names_mapping = {
@@ -16,6 +14,9 @@ class ImdbPage(BasePage):
             "director": lambda page: page.locator('//*[@id="__next"]/main/div/section[1]/section/div[3]/section/section/div[3]/div[2]/div[2]/div[2]/ul/li[1]/div/ul/li/a'),
             "rating": lambda page: page.locator('//*[@id="__next"]/main/div/section[1]/section/div[3]/section/section/div[3]/div[2]/div[2]/div[1]/div/div[1]/a/span/div/div[2]/div[1]/span[1]'),
         }
+
+        self.search_input = self.field_names_mapping["search_input"](page)
+        self.search_button = self.field_names_mapping["search_button"](page)
 
     def get_field_by_enum(self, valor: str) -> Callable[[Page], Locator]:
         locator = self.field_names_mapping.get(valor)
